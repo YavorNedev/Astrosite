@@ -1,0 +1,43 @@
+
+
+{% extends 'base.html' %}
+{% block title %}Forum{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Forum</h1>
+
+    <!-- Categories Section -->
+    <div class="categories mb-4">
+        <h3>Categories</h3>
+        <ul>
+            {% for category in categories %}
+                <li>
+                    <h4>{{ category.name }}</h4>
+                    <p>{{ category.description }}</p>
+                </li>
+            {% empty %}
+                <p>No categories available.</p>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Threads Section -->
+    <div class="threads">
+        <h3>Threads</h3>
+        <ul>
+            {% for thread in threads %}
+                <li>
+                    <a href="{% url 'thread_detail' thread.id %}">
+                        <h4>{{ thread.title }}</h4>
+                        <p>{{ thread.content|truncatechars:100 }}</p>
+                        <p>By: {{ thread.user.username }} | {{ thread.created_at }}</p>
+                    </a>
+                </li>
+            {% empty %}
+                <p>No threads available.</p>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+

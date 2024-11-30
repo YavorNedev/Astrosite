@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Shop Categories{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Shop Categories</h2>
+
+    <div class="row">
+        {% for category, items in categories.items %}
+            <div class="col-md-4">
+                <h3>{{ category }}</h3>
+                {% if items %}
+                    <ul>
+                        {% for item in items %}
+                            <li>
+                                <strong>{{ item.name }}</strong> - ${{ item.price }}
+                                {% if item.image %}
+                                    <div>
+                                        <img src="{{ item.image.url }}" alt="{{ item.name }}" style="max-width: 100px;">
+                                    </div>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No items in this category.</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

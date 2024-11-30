@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Forum Categories</h1>
+<ul>
+   
+    {% for category in categories %}
+        <li><a href="{% url 'thread_list' category.id %}">{{ category.name }}</a> - {{ category.description }}</li>
+        <a href="{% url 'create_thread' category.id %}" class="btn btn-primary">Create Thread</a>
+    {% endfor %}
+</ul>
+{% endblock %}

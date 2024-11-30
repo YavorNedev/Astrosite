@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>{{ post.title }}</h1>
+    <p class="text-muted">By <strong>{{ post.author }}</strong> on {{ post.created_at|date:"F d, Y" }}</p>
+    <hr>
+
+    {% if post.image %}
+        <div class="mb-4">
+            <img src="{{ post.image.url }}" class="img-fluid" alt="Post image">
+        </div>
+    {% endif %}
+
+    <div class="content mb-5">
+        <p>{{ post.content }}</p>
+    </div>
+
+    <hr>
+    <h3>Comments</h3>
+    <div class="mb-4">
+        {% if post.comments.exists %}
+            <ul class="list-unstyled">
+                {% for comment in post.comments.all %}
+                    <li class="mb-3">
+                        <p><strong>{{ comment.author }}</strong> said on {{ comment.created_at|date:"F d, Y H:i" }}:</p>
+                        <p>{{ comment.content }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No comments yet. Be the first to comment!</p>
+        {% endif %}
+    </div>
+
+    {% if user.is_authenticated %}
+        <h4>Leave a Comment</h4>
+        <form method="post" class="mt-3">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+    {% else %}
+        <p class="text-muted">You must be logged in to post a comment.</p>
+    {% endif %}
+    
+    {% if post.author == user %}
+        <!-- Show these buttons only for the author -->
+        <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
+    {% endif %}
+
+    <a href="{% url 'posts_list' %}" class="btn btn-secondary mt-4">Back to Forum</a>
+{#    <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit Post</a>#}
+{#    <a href="{% url 'post_delete' post.pk %}" class="btn btn-warning">Delete Post</a>#}
+</div>
+{% endblock %}

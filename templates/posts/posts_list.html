@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+{% block title %}Post List{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Post List</h2>
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    
+                        <img src="{{ post.image.url }}" class="card-img-top" alt="Post Image">
+               
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content| truncatechars:100 }}</p>
+                        <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">View Post</a>
+                        {% if post.author == user %}
+                        <!-- Show these buttons only for the author -->
+                        <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
