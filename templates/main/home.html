@@ -8,18 +8,18 @@
     <a href="{% url 'about' %}" class="btn btn-primary btn-lg">Learn More</a>
     
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h3>Explore the Universe</h3>
-        <p>Discover the latest news and insights in astronomy.</p>
-    </div>
-    <div class="col-md-4">
+{#<div class="row">#}
+{#    <div class="col-md-4">#}
+{#        <h3>Explore the Universe</h3>#}
+{#        <p>Discover the latest news and insights in astronomy.</p>#}
+{#    </div>#}
+    <div class=col-md-4>
         <h3>Join the Community</h3>
         <p>Engage in discussions, share your experiences, and learn from others.</p>
         <a href="{% url 'category_list' %}" class="btn btn-primary">Forums</a>
        
     </div>
-    <div class="col-md-4">
+    <div class=col-md-4>
         <h3>Shop Astronomy Gear</h3>
         <p>Find the perfect equipment to enhance your stargazing experience.</p>
         <a href="{% url 'shop' %}" class="btn btn-secondary">Visit Shop</a>
@@ -27,5 +27,5 @@
             <a href="{% url 'create_shop_item' %}" class="btn btn-primary">Create Shop Item</a>
          {% endif %}
     </div>
-</div>
+{#</div>#}
 {% endblock %}

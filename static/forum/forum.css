@@ -1,0 +1,15 @@
+.comments-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comments-section2 li {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 600px;
+    word-wrap: break-word;
+}

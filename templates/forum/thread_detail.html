@@ -4,17 +4,25 @@
 <p>{{ thread.content }}</p>
 <p>Posted by {{ thread.user }} on {{ thread.created_at }}</p>
 <hr>
+    
 <h2>Comments</h2>
+   <div class="comments-section2">  
 <ul>
     {% for comment in comments %}
-        <li>{{ comment.author }}: {{ comment.content }}</li>
+        <li><strong>{{ comment.author }}: </strong> {{ comment.content }}</li>
     {% endfor %}
 </ul>
+   </div>>   
 <hr>
+ {% if user.is_authenticated %}   
 <h3>Add a Comment</h3>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Add Comment</button>
+  {%endif%}
+    <a href="{% url 'category_list' %}" class="btn btn-secondary">Back to form</a>
+
 </form>
+
 {% endblock %}

@@ -1,28 +1,16 @@
-
-
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Categorys, Thread, Comments
+from .models import Category, Thread, Comments
 from .forms import ThreadForm, CommentForm
 
-def forum_view(request):
 
-    categories = Categorys.objects.all()
-    threads = Thread.objects.all()
-
-    context = {
-        'categories': categories,
-        'threads': threads,
-    }
-    return render(request, 'forum/forum.html', context)
 
 def category_list_view(request):
-    categories = Categorys.objects.all()
+    categories = Category.objects.all()  # Corrected query
     return render(request, 'forum/category_list.html', {'categories': categories})
 
 def thread_list_view(request, category_id):
-
-    category = get_object_or_404(Categorys, pk=category_id)
+    category = get_object_or_404(Category, pk=category_id)  # Corrected model reference
     threads = Thread.objects.filter(category=category)
 
     context = {
@@ -33,7 +21,7 @@ def thread_list_view(request, category_id):
 
 @login_required
 def create_thread_view(request, category_id):
-    category = get_object_or_404(Categorys, pk=category_id)
+    category = get_object_or_404(Category, pk=category_id)  # Corrected model reference
     if request.method == 'POST':
         form = ThreadForm(request.POST)
         if form.is_valid():
@@ -48,6 +36,7 @@ def create_thread_view(request, category_id):
 
 def thread_detail_view(request, thread_id):
     thread = get_object_or_404(Thread, pk=thread_id)
+
     comments = thread.comments.all()
     if request.method == 'POST':
         form = CommentForm(request.POST)

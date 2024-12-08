@@ -2,10 +2,11 @@
 {% block content %}
 <h1>{{ category.name }}</h1>
 <p>{{ category.description }}</p>
-<a href="{% url 'create_thread' category.id %}" class="btn btn-primary">Create Thread</a>
+
 <ul>
     {% for thread in threads %}
-        <li><a href="{% url 'thread_detail' thread.id %}">{{ thread.title }}</a> by {{ thread.user }}</li>
+        <li><a href="{% url 'thread_detail' thread.id %}">{{ thread.title }} </a> Thread  by {{ thread.user }}</li>
     {% endfor %}
+    <a href="{% url 'create_thread' category.id %}" class="btn btn-primary">Create Thread</a>
 </ul>
 {% endblock %}

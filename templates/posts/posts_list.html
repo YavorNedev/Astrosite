@@ -4,14 +4,14 @@
 
 {% block content %}
 <div class="container">
-    <h2 class="mb-4">Post List</h2>
+    <h2 class="mb-4">Gallery</h2>
     <div class="row">
         {% for post in posts %}
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    
+
                         <img src="{{ post.image.url }}" class="card-img-top" alt="Post Image">
-               
+
                     <div class="card-body">
                         <h5 class="card-title">{{ post.title }}</h5>
                         <p class="card-text">{{ post.content| truncatechars:100 }}</p>
@@ -28,4 +28,6 @@
     </div>
 </div>
 {% endblock %}
+
+
 
