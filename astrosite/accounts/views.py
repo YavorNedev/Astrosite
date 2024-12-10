@@ -33,7 +33,7 @@ def login_view(request):
 
 def logout_view(request):
 
-    if request.method == 'POST':  # Handle form submission for logout
+    if request.method == 'POST':
         if request.user.is_authenticated:
             logout(request)
 

@@ -7,9 +7,11 @@
 .comments-section2 li {
     margin-bottom: 10px;
     padding: 5px;
-    background-color: #f9f9f9;
+    color: #ffffff;
+    background-color: #081335;
     border: 1px solid #ddd;
     border-radius: 5px;
     max-width: 600px;
     word-wrap: break-word;
+    opacity: 0.7;
 }

@@ -17,7 +17,7 @@
                         <p class="card-text">{{ post.content| truncatechars:100 }}</p>
                         <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">View Post</a>
                         {% if post.author == user %}
-                        <!-- Show these buttons only for the author -->
+               
                         <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit</a>
                         <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
                     {% endif %}

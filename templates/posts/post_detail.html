@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container mt-5">
     <h1>{{ post.title }}</h1>
-    <p class="text-muted">By <strong>{{ post.author }}</strong> on {{ post.created_at|date:"F d, Y" }}</p>
+    <p class="card-text ">By <strong>{{ post.author }}</strong> on {{ post.created_at|date:"F d, Y" }}</p>
     <hr>
 
     {% if post.image %}
@@ -46,7 +46,7 @@
     {% endif %}
     
     {% if post.author == user %}
-        <!-- Show these buttons only for the author -->
+     
         <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit</a>
         <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
     {% endif %}
