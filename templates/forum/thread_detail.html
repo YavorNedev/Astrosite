@@ -19,9 +19,9 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Add Comment</button>
+    <button type="submit" class="btn btn-warning">Add Comment</button>
   {%endif%}
-    <a href="{% url 'category_list' %}" class="btn btn-secondary">Back to form</a>
+    <a href="{% url 'category_list' %}" class="btn btn-danger">Back to form</a>
 
 </form>
 

@@ -1,17 +1,71 @@
-.comments-section ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+
+#forum-container_max h1 {
+    font-family: 'Bruno Ace SC', sans-serif;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-.comments-section2 li {
-    margin-bottom: 10px;
-    padding: 5px;
+
+#forum-container_max ul {
+    list-style: none;
+    padding: 0;
+}
+
+#forum-container_max ul li {
+    background: none;
     color: #ffffff;
-    background-color: #081335;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #2a4375;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     max-width: 600px;
-    word-wrap: break-word;
-    opacity: 0.7;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#forum-container_max ul li a {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    color: #00b7ff;
+    text-decoration: none;
+}
+
+#forum-container_max ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+#forum-container_max ul li:hover {
+    transform: translateY(-5px);
+    background-color: rgba(20, 33, 71, 1);
+}
+
+#forum-container_max ul li span {
+    display: block;
+    font-size: 14px;
+    color: #c0c7e4;
+    margin-top: 5px;
+}
+
+
+@media (max-width: 768px) {
+    ul li {
+        padding: 10px;
+    }
+
+    ul li a {
+        font-size: 16px;
+    }
 }

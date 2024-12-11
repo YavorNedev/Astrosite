@@ -39,7 +39,7 @@
         <form method="post" class="mt-3">
             {% csrf_token %}
             {{ comment_form.as_p }}
-            <button type="submit" class="btn btn-primary">Post Comment</button>
+            <button type="submit" class="btn btn-warning">Post Comment</button>
         </form>
     {% else %}
         <p class="text-muted">You must be logged in to post a comment.</p>
@@ -51,8 +51,7 @@
         <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
     {% endif %}
 
-    <a href="{% url 'posts_list' %}" class="btn btn-secondary mt-4">Back to Forum</a>
-{#    <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit Post</a>#}
-{#    <a href="{% url 'post_delete' post.pk %}" class="btn btn-warning">Delete Post</a>#}
+    <a href="{% url 'posts_list' %}" class="btn btn-warning">Back to Forum</a>
+
 </div>
 {% endblock %}

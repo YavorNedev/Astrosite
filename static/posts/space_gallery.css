@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 body {
     background: radial-gradient(circle at center, #1a1a3d, #0d0d2a);
     color: #f0f0f0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Bruno Ace SC", sans-serif;
 }
 
 .container {
@@ -54,6 +55,7 @@ h2 {
 
 .btn {
     background-color: #00ccff;
+    margin-top: 5px;
     border: none;
     color: #fff;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -67,6 +69,7 @@ h2 {
 .btn-warning:hover {
     background-color: #e68a00;
     box-shadow: 0 0 10px rgba(230, 138, 0, 0.8);
+
 }
 
 .btn-danger:hover {

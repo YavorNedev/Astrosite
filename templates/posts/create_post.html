@@ -1,13 +1,14 @@
+
 {% extends 'base.html' %}
 {% block content %}
-<div class="container mt-5">
+<div class="container_post">
     <h2>Create a New Post</h2>
     <hr>
-    <form method="post" enctype="multipart/form-data" class="mt-4">
+    <form method="post" enctype="multipart/form-data" class="input">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{% url 'posts_list' %}" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-warning">Submit</button>
+        <a href="{% url 'posts_list' %}" class="btn btn-danger">Cancel</a>
     </form>
 </div>
 {% endblock %}
